@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<br><br><br>
+{% for exercise in BDProgrammes %}
+<div class="row">
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="{{ exercise.image.url }}" alt="Card image cap" heigt="286" with="180">
+  <div class="card-body">
+    <h5 class="card-title">{{ exercise.name }}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="{{ exercise.get_absolute_url }}" class="btn btn-primary">View content</a>
+  </div>
+</div>
+
+{({% endfor %})}
+</div>
+{% else %}
+<br><br><br><br>
+<h1>Restricted Page</h1>Sorry you need to login to view this page.
+{% endif %}
+{% endblock content %}

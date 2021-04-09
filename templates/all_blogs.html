@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="row">
+{% for blog in blog_list %}
+<br><br>
+<div class="col-md-4 d-flex ftco-animate">
+<div class="blog-entry justify-content-end">
+<a href="{{ blog.title }}" class="block-20" style="background-image: url({{ blog.image.url }});">
+</a>
+<div class="text p-4 float-right d-block">
+<div class="meta">
+<div><a href="#">{{ blog.timestamp }}</a></div>
+<div><a href="#">Admin</a></div>
+<div><a href="#" class="meta-chat"><span class="icon-chat"></span> {{ blog.comment_count }}</a></div>
+</div>
+<h3 class="heading mt-2"><a href="{{ blog.get_absolute_url }}">{{ blog.title }}</a></h3>
+<p>{{ blog.content|truncatechars:100 }}</p>
+<a href="{{ blog.get_absolute_url }}">View Details</a>
+</div>
+</div>
+</div>
+{% endfor %}
+</div>
+
+{% endblock content %}

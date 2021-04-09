@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="col-md-4 d-flex ftco-animate">
+<div class="blog-entry justify-content-end">
+<a href="{{ blog.title }}" class="block-20" style="background-image: url({{ blog.image.url }});">
+</a>
+<div class="text p-4 float-right d-block">
+<div class="meta">
+<div><a href="#">{{ blog.timestamp }}</a></div>
+<div><a href="#"></a></div>
+<div><a href="#" class="meta-chat"><span class="icon-chat"></span> {{ blog.comment_count }}</a></div>
+</div>
+<h3 class="heading mt-2"><a href="#">{{ blog.title }}</a></h3>
+<p>{{ Blog.content }}</p>
+</div>
+</div>
+</div>
+
+<form method="POST" action="">
+{% csrf_token %}
+{{ form }}
+<button type="submit">Leave a comment</button>
+</form>
+{% endblock content %}
