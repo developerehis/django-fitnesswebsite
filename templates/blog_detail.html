@@ -2,25 +2,24 @@
 
 {% block content %}
 
-<div class="col-md-4 d-flex ftco-animate">
-<div class="blog-entry justify-content-end">
-<a href="{{ blog.title }}" class="block-20" style="background-image: url({{ blog.image.url }});">
-</a>
-<div class="text p-4 float-right d-block">
-<div class="meta">
-<div><a href="#">{{ blog.timestamp }}</a></div>
-<div><a href="#"></a></div>
-<div><a href="#" class="meta-chat"><span class="icon-chat"></span> {{ blog.comment_count }}</a></div>
-</div>
-<h3 class="heading mt-2"><a href="#">{{ blog.title }}</a></h3>
-<p>{{ Blog.content }}</p>
-</div>
-</div>
-</div>
+<div class="col-lg-8 ftco-animate">
 
+<h2 class="mb-3">{{ Blog.title }}</h2>
+<img src="{{ Blog.image.url }}" alt="" class="img-fluid" />
+<div class="meta">
+<div><a href="#">{{ Blog.timestamp }}</a></div>
+<div><a href="#"></a></div>
+<div><a href="#" class="meta-chat"><span class="icon-chat"></span> {{ Blog.comment_count }}</a></div>
+</div><hr>
+      <p>{{ Blog.content }}</p>
+      <div class="tag-widget post-tag-container mb-5 mt-5">
 <form method="POST" action="">
 {% csrf_token %}
 {{ form }}
-<button type="submit">Leave a comment</button>
-</form>
+<button type="submit">Submit Comment</button>
+</form><br>      </div>
+g</div>
+
+
+
 {% endblock content %}
